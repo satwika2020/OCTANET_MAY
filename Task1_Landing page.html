@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FocusFlow - Boost Your Productivity</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: #0066cc;
+        }
+
+        a:hover {
+            color: #003399;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        /* Hero Section */
+        #hero {
+            height: 100vh;
+            background-image: url('https://source.unsplash.com/random/1600x900/?ai,technology,office');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            font-size: 2rem;;
+        }
+
+        #hero h1 {
+            font-size: 4rem;
+            line-height: 1.2;
+        }
+
+        #hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Features Section */
+        #features {
+            padding: 80px 0;
+            background-color: #f4f4f4;
+        }
+
+        #features h2 {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        #features .feature {
+            width: 31%;
+            float: left;
+            padding: 20px;
+            background-color: white;
+            border: 1px solid #ddd;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+            margin-right: 2%;
+            margin-bottom: 2%;
+        }
+
+        #features .feature:nth-child(3n) {
+            margin-right: 0;
+        }
+
+        #features .feature img {
+            width: 100%;
+        }
+
+        #features .feature h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        #features .feature p {
+            font-size: 1.1rem;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        /* Call-to-Action Section */
+        #cta {
+            background-color: #0066cc;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        #cta h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        #cta a {
+            font-size: 1.3rem;
+            padding: 15px 40px;
+            background-color: #003399;
+            border-radius: 5px;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            #features .feature {
+                width: 48%;
+            }
+
+            #features .feature:nth-child(2n) {
+                margin-right: 2%;
+            }
+}
+
+        @media (max-width: 480px) {
+            #features.feature {
+                width: 100%;
+                margin-right: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hero Section -->
+        <section id="hero">
+            <h1>Boost Your Productivity with FocusFlow</h1>
+            <p>Stay focused, stay productive. Get more done in less time with our AI-powered productivity app.</p>
+            <a href="#" class="btn">Get Started</a>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features">
+            <h2>What You Can Do with FocusFlow</h2>
+            <ul>
+                <li class="feature">
+                    <img src="https://source.unsplash.com/random/200x200/?ai,productivity,office" alt="Task Management">
+                    <h3>Task Management</h3>
+                    <p>Organize and prioritize your tasks with our intuitive task management system.</p>
+                </li>
+                <li class="feature">
+                    <img src="https://source.unsplash.com/random/200x200/?ai,time,management" alt="Time Management">
+                    <h3>Time Management</h3>
+                    <p>Optimize your time with our AI-powered time management system, and get more done in less time.</p>
+                </li>
+                <li class="feature">
+                    <img src="https://source.unsplash.com/random/200x200/?ai,goal,setting" alt="Goal Setting">
+                    <h3>Goal Setting</h3>
+                    <p>Set and achieve your goals with our goal-setting feature, powered by AI-driven insights.</p>
+                </li>
+                <li class="feature">
+                    <img src="https://source.unsplash.com/random/200x200/?ai,team,collaboration" alt="Team Collaboration">
+                    <h3>Team Collaboration</h3>
+                    <p>Collaborate with your team seamlessly with our real-time collaboration feature.</p>
+                </li>
+                <li class="feature">
+                    <img src="https://source.unsplash.com/random/200x200/?ai,report,analytics" alt="Report and Analytics">
+                    <h3>Report and Analytics</h3>
+                    <p>Get actionable insights with our detailed reports and analytics, powered by AI-driven data analysis.</p>
+                </li>
+                <li class="feature">
+                    <img src="https://source.unsplash.com/random/200x200/?ai,integration,api" alt="Integration and API">
+                    <h3>Integration and API</h3>
+                    <p>Integrate FocusFlow with your existing tools and systems using our robust API.</p>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Call-to-Action Section -->
+        <section id="cta">
+            <h3>Ready to Boost Your Productivity?</h3>
+            <a href="#" class="btn">Sign Up for Free</a>
+        </section>
+    </div>
+</body>
+</html>
