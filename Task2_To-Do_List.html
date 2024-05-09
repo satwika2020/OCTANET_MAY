@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: #0066cc;
+        }
+
+        a:hover {
+            color: #003399;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        /* Header */
+        header {
+            background-color: #0066cc;
+            color: white;
+            padding: 20px;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            margin: 0;
+        }
+
+        /* Task Input */
+        #task-input {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        #task-input input[type="text"] {
+            width: 70%;
+            padding: 10px;
+            font-size: 1.1rem;
+        }
+
+        #task-input select {
+            width: 15%;
+            padding: 10px;
+            font-size: 1.1rem;
+            margin-right: 10px;
+        }
+
+        #task-input input[type="date"] {
+            width: 15%;
+            padding: 10px;
+            font-size: 1.1rem;
+        }
+
+        #task-input button {
+            width: 25%;
+            padding: 10px;
+            background-color: #003399;
+            color: white;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #task-input button:hover {
+            background-color: #004d99;
+        }
+
+        /* Task List */
+        #task-list {
+            padding: 20px;
+        }
+
+        #task-list li {
+            background-color: #f4f4f4;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            position: relative;
+        }
+
+        #task-list li input[type="checkbox"] {
+            position: absolute;
+            top: 50%;
+            left: 5%;
+            transform: translateY(-50%);
+        }
+
+        #task-list li span {
+            width: 80%;
+            display: inline-block;
+            margin-left: 10%;
+            font-size: 1.1rem;
+        }
+
+        #task-list li span.priority {
+            width: 10%;
+        }
+
+        #task-list li span.due-date {
+            width: 15%;
+        }
+
+        #task-list li button {
+            position: absolute;
+            top: 50%;
+            right: 5%;
+            transform: translateY(-50%);
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
+
+        #task-list li button:hover {
+            color: #003399;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #f4f4f4;
+            padding: 20px;
+            text-align: center;
+        }
+/* Media Queries */
+        @media (max-width: 768px) {
+            #task-input input[type="text"] {
+                width: 80%;
+            }
+
+            #task-input select,
+            #task-input input[type="date"] {
+                width: 15%;
+            }
+
+            #task-input button {
+                width: 18%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>To-Do List</h1>
+        </header>
+
+        <!--Task Input -->
+        <section id="task-input">
+            <input type="text" id="task-input-field" placeholder="Add a new task...">
+            <select id="task-priority">
+                <option value="">Priority</option>
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+            </select>
+            <select id="task-category">
+                <option value="">Category</option>
+                <option value="personal">Personal</option>
+                <option value="work">Work</option>
+                <option value="other">Other</option>
+            </select>
+            <input type="date" id="task-due-date">
+            <button id="task-input-button">Add</button>
+        </section>
+
+        <!-- Task List -->
+        <section id="task-list">
+            <ul></ul>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>Copyright © 2024 To-Do List</p>
+        </footer>
+    </div>
+
+    <script>
+        const taskInputField = document.getElementById("task-input-field");
+        const taskInputButton = document.getElementById("task-input-button");
+        const taskList = document.getElementById("task-list");
+        const taskPriority = document.getElementById("task-priority");
+        const taskCategory = document.getElementById("task-category");
+        const taskDueDate = document.getElementById("task-due-date");
+
+        taskInputButton.addEventListener("click", () => {
+            if (taskInputField.value.trim() !== "") {
+                const newTask = document.createElement("li");
+                newTask.innerHTML = `
+                    <input type="checkbox">
+                    <span>${taskInputField.value}</span>
+                    <span class="priority">${taskPriority.value || ""}</span>
+                    <span class="due-date">${taskDueDate.value || ""}</span>
+                    <button>X</button>
+                `;
+
+                taskList.querySelector("ul").appendChild(newTask);
+                taskInputField.value = "";
+                taskPriority.value = "";
+                taskCategory.value = "";
+                taskDueDate.value = "";
+
+                newTask.querySelector("button").addEventListener("click", () => {
+                    newTask.remove();
+                });
+
+                newTask.querySelector("input[type='checkbox']").addEventListener("change", () => {
+                    newTask.querySelector("span").style.textDecoration = newTask.querySelector("input[type='checkbox']").checked ? "line-through" : "none";
+                });
+            }
+        });
+    </script>
+</body>
+</html>
